@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>In-Store Navigation</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1 id="title">In-Store Navigation</h1>
+      <div class="controls">
+        <label>Floor:
+          <select id="floorSelect"></select>
+        </label>
+        <label>Language:
+          <select id="langSelect">
+            <option value="en">English</option>
+            <option value="kn">Kannada</option>
+            <option value="hi">Hindi</option>
+          </select>
+        </label>
+        <button id="toggleAdmin">Shopkeeper Mode</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="left">
+        <div class="mapFrame">
+          <div id="map" class="map"></div>
+          <canvas id="pathCanvas"></canvas>
+        </div>
+        <div class="mapLegend">
+          <span class="legend-item shop">Shop</span>
+          <span class="legend-item walk">Walkable</span>
+          <span class="legend-item wall">Blocked</span>
+          <span class="legend-item escalator">Escalator/Lift/Stairs</span>
+          <span class="legend-item entrance">Entrance/Exit</span>
+          <span class="legend-item wash">Washroom</span>
+        </div>
+      </section>
+
+      <aside class="right">
+        <div class="panel">
+          <h3 id="panelTitle">Shops & Items</h3>
+          <input id="searchBox" placeholder="Search items or shops" />
+          <div id="shopList" class="shop-list"></div>
+        </div>
+
+        <div class="panel">
+          <h3>Selected Items / Destinations</h3>
+          <div id="selectedList"></div>
+          <button id="visitOrderBtn">Find Shortest Visit Order</button>
+          <button id="goBtn">Go (Start Navigation)</button>
+        </div>
+
+        <div class="panel adminPanel hidden">
+          <h3>Admin: Edit Shop</h3>
+          <label>Shop:
+            <select id="adminShopSelect"></select>
+          </label>
+          <label>Shop Name: <input id="adminName"/></label>
+          <label>Category: <input id="adminCat"/></label>
+          <label>Items (JSON array): <textarea id="adminItems" rows="6"></textarea></label>
+          <button id="saveShopBtn">Save</button>
+        </div>
+
+      </aside>
+    </main>
+
+    <footer>
+      <small>Demo — static site. Use GitHub Pages or Render to host.</small>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
